@@ -1,55 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <!-- index.html  21 Nov 2019 03:44:50 GMT -->
 <head>
   <meta charset="UTF-8">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>{{ config('app.name', 'Laravel') }}</title>
+  <title>Asset Inventory Monitoring System</title>
   <!-- General CSS Files -->
   <link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}">
-  <link rel="shortcut icon" href="{{asset('images/icon.png')}}">
+  <link rel="shortcut icon" href="{{asset('images/wgroup.png')}}">
   <!-- Template CSS -->
-  
-  <link rel="stylesheet" href="{{asset('assets/bundles/select2/dist/css/select2.min.css')}}"> 
+
   <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+
+  <link rel="stylesheet" href="{{asset('assets/bundles/select2/dist/css/select2.min.css')}}"> 
   <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+  <!-- <link rel="stylesheet" href="{{ asset('login_css/css/style-new.css') }}"> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 
   <!-- Custom style CSS -->
-  <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+  
   <script src="{{ asset('qrcode/dist/easy.qrcode.min.js') }}" type="text/javascript" charset="utf-8"></script>
 
-  <style>
-    	#header{
-				text-align: left;
-				margin: 0;
-				line-height: 80px;
-				background-color: #007bff;
-				color: #fff;
-				padding-left: 20px;
-				font-size: 36px;
-			}
-			
-			#header a{color: #FFFF00;}
-			#header a:hover{color: #FF9933;}
-			#container {
-				width: 1030px;
-				margin: 10px auto;
-			}
+  <style type="text/css">
+    #header{
+      text-align: left;
+      margin: 0;
+      line-height: 80px;
+      background-color: #007bff;
+      color: #fff;
+      padding-left: 20px;
+      font-size: 36px;
+    }
+    #header a{color: #FFFF00;}
+    #header a:hover{color: #FF9933;}
+    #container {
+      width: 1030px;
+      margin: 10px auto;
+    }
 
-			.imgblock {
-				margin: 10px 0;
-				text-align: center;
-				float: left;
-				min-height: 420px;
-			}
-
-			
-
-		
+    .imgblock {
+      margin: 10px 0;
+      text-align: center;
+      float: left;
+      min-height: 420px;
+    }
     .zoom:hover {
       transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
     }
@@ -65,21 +62,96 @@
         -moz-appearance:textfield;
     }
     .loader {
-        position: fixed;
-        left: 0px;
-        top: 0px;
-        width: 100%;
-        height: 100%;
-        z-index: 9999;
-        background: url("{{ asset('/images/3.gif')}}") 50% 50% no-repeat rgb(249,249,249) ;
-        opacity: .8;
-        background-size:120px 120px;
+      position: fixed;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      background: url("{{ asset('/images/loading.gif')}}") 50% 50% no-repeat rgb(249,249,249) ;
+      opacity: .8;
+      background-size:120px 120px;
+    }
+    .btn-save {
+      text-transform: uppercase;
+      transition: 0.5s;
+      width: 100px;
+      background-size: 200% auto;
+      color: white;
+      box-shadow: 0px 0px 14px -7px #1737b2;
+      background-image: linear-gradient(45deg, #0b2daf 0%, #1737b2  51%, #3c64ff  100%);
+    }
+    .btn-print {
+      text-transform: uppercase;
+      transition: 0.5s;
+      width: 100px;
+      background-size: 200% auto;
+      color: white;
+      box-shadow: 0px 0px 14px -7px #f94238;
+      background-image: linear-gradient(45deg, #dc3545 0%, #dd6c66 51%, #f94238 100%);
+    }
+    .btn-new {
+      text-transform: uppercase;
+      transition: 0.5s;
+      width: 100px;
+      background-size: 200% auto;
+      color: white;
+      box-shadow: 0px 0px 14px -7px #41c457;
+      background-image: linear-gradient(45deg, #3fdb63 0%, #28a745 51%, #28c76f 100%);
+    }
+    .btn-default {
+      text-transform: uppercase;
+      transition: 0.5s;
+      width: 100px;
+      background-size: 200% auto;
+      color: #FFF;
+      box-shadow: 0px 0px 14px -7px #e7e7e7;
+      background-image: linear-gradient(45deg, #808180 0%, #b1b1b1 51%, #979797 100%);
+    }
+    .btn-default:hover {
+      background-position: right center;
+      /* change the direction of the change here */
+      color: #fff;
+      text-decoration: none;
+    }
+    .btn-default:active {
+      transform: scale(0.95);
+    }
+    .btn-new:hover {
+      background-position: right center;
+      /* change the direction of the change here */
+      color: #fff;
+      text-decoration: none;
+    }
+    .btn-print:hover {
+      background-position: right center;
+      /* change the direction of the change here */
+      color: #fff;
+      text-decoration: none;
+    }
+    .btn-save:hover {
+      background-position: right center;
+      /* change the direction of the change here */
+      color: #fff;
+      text-decoration: none;
+    }
+    .btn-print:active {
+      transform: scale(0.95);
+    }
+    .btn-save:active {
+      transform: scale(0.95);
+    }
+    .btn-new:active {
+      transform: scale(0.95);
+    }
+    .form-label {
+      font-weight: 700;
     }
     @media (min-width: 768px) {
-        .modal-xl {
-            width: 100%;
-            max-width:1700px;
-        }
+      .modal-xl {
+        width: 100%;
+        max-width:1700px;
+      }
     }
     #employees-table_filter
     {
@@ -109,13 +181,25 @@
     {
       float: right !important;
     }
-
-
+    .dataTables_empty {
+      text-align: center;
+    }
+    .dataTables_info {
+      position: absolute;
+      margin-top: 10px;
+    }
+    .modal-header {
+      background-color: #007bff;
+      color: #FFF;
+    }
+    .sidebar-mini .main-sidebar .sidebar-brand a .header-logo  {
+      height: 35px;
+    }
 </style>
 </head>
 
 <body>
-  <div id = "myDiv" class="loader"></div>
+  <div id="myDiv" class="loader"></div>
   <div id="app">
     <div class="main-wrapper main-wrapper-1">
       <div class="navbar-bg"></div>
@@ -127,14 +211,12 @@
             </li>
           </ul>
         </div>
-        <div>
-          <ul class="navbar-nav mr-3">
-            <li><h3 style="letter-spacing: 7px;">ASSET INVENTORY MONITORING SYSTEM</h3></li>
-          </ul>
+        <div style="letter-spacing: 3px;margin-top: 10px">
+            <h3>ASSET INVENTORY MONITORING SYSTEM</h3>
         </div>
         <ul class="navbar-nav navbar-right">
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user"> 
-              <img alt="image" src="{{'images/no_image.png'}}" class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
+            <img alt="image" src="{{'images/no_image.png'}}"> <span class="d-sm-none d-lg-inline-block"></span></a>
             <div class="dropdown-menu dropdown-menu-right pullDown">
               <div class="dropdown-title">Hello {{auth()->user()->name}}</div>
               {{-- <a href="profile.html" class="dropdown-item has-icon"> <i class="far
@@ -154,7 +236,7 @@
       <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand p-2">
-            <a href="{{url('/')}}"> <img alt="image" src="{{asset('images/icon.png')}}" class="header-logo" /></a>
+            <a href="{{url('/')}}"> <img alt="image" src="{{asset('images/wgroup.png')}}" class="header-logo" /></a>
             <br>
             <h5 class="logo-name pt-2" >Welcome {{ (explode(" ", auth()->user()->name))[0] }}</h5>
           </div>
@@ -194,8 +276,8 @@
               <li class="dropdown @if($header == "Reports") active @endif">
                 <a href="{{ url('/reports') }}" class="nav-link" onclick='show();'><i data-feather="file-text"></i><span>Report</span></a>
               </li>
-              <li class="dropdown @if($header == "Phisical Inventory") active @endif">
-                <a href="{{ url('/physical-inventory') }}" class="nav-link" onclick='show();'><i data-feather="upload"></i><span>Phisical Inventory</span></a>
+              <li class="dropdown @if($header == "Physical Inventory") active @endif">
+                <a href="{{ url('/physical-inventory') }}" class="nav-link" onclick='show();'><i data-feather="upload"></i><span>Physical Inventory</span></a>
               </li>
             </ul>
         </aside>
@@ -207,7 +289,7 @@
             
         </div>
         <div class="footer-right">
-            <small>Copyright &copy; {{date('Y')}}</small> Obanana Corporation
+            <small>Copyright &copy; {{date('Y')}}</small> W Group Inc.
         </div>
       </footer> 
     </div>
@@ -233,7 +315,7 @@
   <script src="{{ asset('assets/bundles/select2/dist/js/select2.full.min.js') }}"></script>
   <!-- JS Libraies -->
   <script src="{{ asset('assets/bundles/datatables/datatables.min.js') }}"></script>
-  {{-- <script src="{{ asset('assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js.js') }}"></script> --}}
+
   <script src="{{ asset('assets/bundles/jquery-ui/jquery-ui.min.js') }}"></script>
   
   <script src="{{ asset('assets/bundles/sweetalert/sweetalert.min.js') }}"></script>

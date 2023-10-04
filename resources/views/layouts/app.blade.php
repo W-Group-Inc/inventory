@@ -7,16 +7,17 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Asset Inventory Monitoring System</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <link rel="shortcut icon" href="{{asset('images/icon.png')}}">
+    <link rel="shortcut icon" href="{{asset('images/wgroup.png')}}">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{ asset('login_css/css/style-new.css') }}">
 
     
     <style>
@@ -38,7 +39,7 @@
             width: 100%;
             height: 100%;
             z-index: 9999;
-            background: url("{{ asset('/images/3.gif')}}") 50% 50% no-repeat rgb(249,249,249) ;
+            background: url("{{ asset('/images/loading.gif')}}") 50% 50% no-repeat rgb(249,249,249) ;
             opacity: .8;
             background-size:120px 120px;
         }
@@ -49,29 +50,29 @@
             }
         }
         body {
-        background-image: url("{{ asset('login_css/images/bg.jpg')}}");
+            background: url("{{ asset('images/w-background.jpg')}}") no-repeat fixed center;
         }
+        
     </style>
-    	<link rel="stylesheet" href="{{ asset('login_css/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('login_css/css/style.css') }}">
 </head>
-<body class="img js-fullheight" >
-    <div id = "myDiv" style="display:none;" class="loader">
+<body class="img js-fullheight">
+    <div id="myDiv" style="display:none;" class="loader">
     </div>
     <div id="app">
-      
-        <main class="py-4">
+        <main class="pt-6">
             @yield('content')
         </main>
     </div>
-      <script type='text/javascript'>
+    <script type='text/javascript'>
         function show()
         {
             document.getElementById("myDiv").style.display="block";
         }
-      </script>
-      <script src="{{ asset('login_css/js/jquery.min.js') }}"></script>
-	  <script src="{{ asset('login_css/js/popper.js') }}"></script>
-	  <script src="{{ asset('login_css/js/bootstrap.min.js') }}"></script>
-	  <script src="{{ asset('login_css/js/main.js') }}"></script>
+    </script>
+    <script src="{{ asset('login_css/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('login_css/js/popper.js') }}"></script>
+    <script src="{{ asset('login_css/js/bootstrap.min.js') }}"></script>]
+    <script src="{{ asset('login_css/js/main.js') }}"></script>
 </body>
 </html>

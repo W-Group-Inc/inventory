@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="ftco-section">
+<!-- <section class="ftco-section">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mb-5">
@@ -47,6 +47,56 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <div class="login100-pic js-tilt" data-tilt>
+                <img src="{{asset('images/logo-login.png')}}" alt="wgroup image">
+            </div>
+            
+            <form method="POST" action="{{ route('password.email') }}" aria-label="{{ __('Login') }}" onsubmit='show()'class="login100-form validate-form">
+            @csrf
+            {{ csrf_field() }}
+                <span class="login100-form-title">Reset Password</span>
+                @if (session('status'))
+                    <div class="alert alert-success alert-white rounded">
+                        <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+                        <div class="icon">
+                            <i class="fa fa-check"></i>
+                        </div>
+                        <strong>{{ session('status') }}</strong> 
+                    </div>
+                @endif
+                @if($errors->any())
+                    <div class="alert alert-danger alert-white rounded">
+                        <button type="button" data-dismiss="alert" aria-hidden="true" class="close">×</button>
+                        <div class="icon">
+                            <i class="fa fa-times-circle"></i>
+                        </div>
+                        <strong>{{$errors->first()}}</strong>
+                    </div> 
+                @endif
+                <div class="wrap-input100 validate-input">
+                    <input id="email" class="{{ $errors->has('email') ? ' is-invalid' : '' }} input100" type="email" name="email" placeholder="Email" autocomplete="off" value="{{ old('email') }}" autofocus required>
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </span>
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <button type="submit" class="login100-form-btn submit">
+                    {{ __('Send Password Reset Link') }}
+                    </button>
+                </div>
+
+                <div class="text-center p-t-12">
+                    <a class="txt2" href="{{ route('login') }}" onclick='show()'>Back to login page</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 @endsection

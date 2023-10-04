@@ -5,53 +5,54 @@
         <div class="row">
             <div class="col-12 col-md-12 col-lg-12">
               @if(session()->has('status'))
-                  <div class="alert alert-success alert-dismissable">
-                      {{-- <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button> --}}
-                      {{session()->get('status')}}
-                  </div>
+                <div class="alert alert-success alert-dismissable">
+                  {{-- <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button> --}}
+                  {{session()->get('status')}}
+                </div>
               @endif
               @include('error')
                 <div class="card">
-                    <div class="card-header">
-                      <h4>Employee <a href="#" class="btn btn-icon btn-sm btn-success" title='New Employee' data-toggle="modal" data-target="#new_employee"><i class="fas fa-plus"></i></a></h4>
+                  <div class="card-header">
+                    <h4>Employee</h4>
+                    <a href="#" class="btn btn-success btn-new" title='New Employee' data-toggle="modal" data-target="#new_employee"><i class="fas fa-plus"></i>&nbsp;New</a>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-hover" id="employees-table" style="width:100%;">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+                            <th>Emp Code</th>
+                            <th>Department</th>
+                            <th>Position</th>
+                            <th>Emplooyee Type</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          @foreach($employees as $employee)
+                              <tr>
+                                  <td>{{$employee->name}}</td>
+                                  <td>{{$employee->emp_code}}</td>
+                                  <td>{{$employee->dep->name}}</td>
+                                  <td>{{$employee->position}}</td>
+                                  <td>{{$employee->emp_type}}</td>
+                                  <td>{{$employee->status}}</td>
+                                  <td>
+                                    <a href="#" onclick='viewAccountabilities({{$employee->emp_code}});' title='View Accountabilities' class="btn btn-icon btn-primary" data-toggle="modal" data-target="#viewAccountability">
+                                      <i class="far fa-eye">
+                                      </i>
+                                    </a>
+                                    <a href="#" onclick='viewQRCode({{$employee->emp_code}},"{{$employee->name}}");' title='Generate QR Code Second' class="btn btn-icon btn-warning" data-toggle="modal" data-target="#generateQrCodeSecond"><i class="fas fa-qrcode"></i></a>
+                                    
+                                  </td>
+                              </tr>
+                          @endforeach
+                        </tbody>
+                      </table>
                     </div>
-                    <div class="card-body">
-                      <div class="table-responsive">
-                        <table class="table table-hover " id="employees-table" style="width:100%;">
-                          <thead>
-                            <tr>
-                              <th>Name</th>
-                              <th>Emp Code</th>
-                              <th>Department</th>
-                              <th>Position</th>
-                              <th>Emplooyee Type</th>
-                              <th>Status</th>
-                              <th>Action</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            @foreach($employees as $employee)
-                                <tr>
-                                    <td>{{$employee->name}}</td>
-                                    <td>{{$employee->emp_code}}</td>
-                                    <td>{{$employee->dep->name}}</td>
-                                    <td>{{$employee->position}}</td>
-                                    <td>{{$employee->emp_type}}</td>
-                                    <td>{{$employee->status}}</td>
-                                    <td>
-                                      <a href="#" onclick='viewAccountabilities({{$employee->emp_code}});' title='View Accountabilities' class="btn btn-icon btn-primary" data-toggle="modal" data-target="#viewAccountability">
-                                        <i class="far fa-eye">
-                                        </i>
-                                      </a>
-                                      <a href="#" onclick='viewQRCode({{$employee->emp_code}},"{{$employee->name}}");' title='Generate QR Code Second' class="btn btn-icon btn-warning" data-toggle="modal" data-target="#generateQrCodeSecond"><i class="fas fa-qrcode"></i></a>
-                                      
-                                    </td>
-                                </tr>
-                            @endforeach
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
+                  </div>
                 </div>
             </div>
         </div>

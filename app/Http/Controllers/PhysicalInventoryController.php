@@ -16,12 +16,11 @@ class PhysicalInventoryController extends Controller
         return view('physicalinventory',
         
         array(
-        'subheader' => '',
-        'header' => "Phisical Inventory",
-        'counts' => $counts,
-        'departments' => $departments,
-        )
-        );
+            'subheader' => '',
+            'header' => "Physical Inventory",
+            'counts' => $counts,
+            'departments' => $departments,
+        ));
         
     }
     public function create(Request $request)

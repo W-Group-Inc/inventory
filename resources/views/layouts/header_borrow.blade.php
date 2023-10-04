@@ -31,7 +31,7 @@
         width: 100%;
         height: 100%;
         z-index: 9999;
-        background: url("{{ asset('/images/3.gif')}}") 50% 50% no-repeat rgb(249,249,249) ;
+        background: url("{{ asset('/images/loading.gif')}}") 50% 50% no-repeat rgb(249,249,249) ;
         opacity: .8;
         background-size:120px 120px;
     }
