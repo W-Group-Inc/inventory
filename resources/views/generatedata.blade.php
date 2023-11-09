@@ -65,7 +65,6 @@
 <script type="text/javascript">
     var employees = {!! json_encode($employees->toArray()) !!};
     var assetCodes = {!! json_encode($assetCodes->toArray()) !!};
-    console.log(assetCodes);
     var assetCodesDepartment = {!! json_encode($assetCodesDepartment->toArray()) !!};
     function generateEmployee(name)
     {

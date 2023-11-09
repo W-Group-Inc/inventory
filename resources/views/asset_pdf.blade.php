@@ -31,7 +31,7 @@
 </head>
 <body class='font-design'>
     <div id="header">
-        <h1><img src='{{asset('login_css/images/logo.png')}}' width='100px' ></h1>
+        <h1><img src='{{asset('login_css/images/wgroup.png')}}' width='100px' ></h1>
     </div>
 
 
@@ -39,9 +39,9 @@
         <tr >
             <td>
                 {{-- <img src='{{asset('login_css/images/logo.png')}}' width='150px' > --}}
-                    <p align='center' class='font-design'><span style='font-size:14px;padding-bottom:3px;' ><strong> Republic of the Philippines</strong></span></p>
-                    <p align='center' class='font-design'><span style='font-size:22px;padding-bottom:5px;' ><strong> PROVINCE OF CATANDUANES</strong></span></p>
-                    <p align='center' class='font-design'><span style='font-size:14px;padding-bottom:5px;' ><strong> Municipality of Caramoran</strong></span></p>
+                    <p align='center' class='font-design'><span style='font-size:14px;padding-bottom:3px;' ><strong> &nbsp;</strong></span></p>
+                    <p align='center' class='font-design'><span style='font-size:22px;padding-bottom:5px;' ><strong> W Group Inc</strong></span></p>
+                    <p align='center' class='font-design'><span style='font-size:14px;padding-bottom:5px;' ><strong> &nbsp;</strong></span></p>
 
                 </p>
             </td>
@@ -87,7 +87,7 @@
         <tr  class='content' align='center' style='padding-top:10px;'>
            <td colspan='2'>
                 <b style='font-size:13px;'>
-                    I recieved the following item(s) for use at Local Government Unit of Caramoran in good order and condition. As the user for this item(s) below, it is now under my accountability and will be held liable for any damage or lost property.
+                    I recieved the following item(s) for use at W Group Inc. in good order and condition. As the user for this item(s) below, it is now under my accountability and will be held liable for any damage or lost property.
                 </b>
            </td>
         </tr>

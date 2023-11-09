@@ -29,7 +29,6 @@
                         <tbody>
                             @php
                                 $dataList  = collect($employeeInventories)->unique('emp_code');
-                                // dd($dataList);
                             @endphp
                             @foreach($dataList as $name)
                               @php
