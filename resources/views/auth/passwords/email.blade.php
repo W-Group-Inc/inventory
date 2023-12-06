@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- <section class="ftco-section">
+<section class="ftco-section">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mb-5">
-                <img alt="image"  src="{{asset('login_css/images/logo.png')}}" style='width:135px;'>
+                <img alt="image" src="{{asset('images/wgroup.png')}}" style='width:250px;'>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -47,9 +47,9 @@
             </div>
         </div>
     </div>
-</section> -->
+</section> 
 
-<div class="limiter">
+{{-- <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
             <div class="login100-pic js-tilt" data-tilt>
@@ -98,5 +98,5 @@
             </form>
         </div>
     </div>
-</div>
+</div> --}}
 @endsection

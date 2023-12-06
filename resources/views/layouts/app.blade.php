@@ -17,7 +17,6 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="{{ asset('login_css/css/style-new.css') }}">
 
     
     <style>
@@ -72,7 +71,7 @@
     </script>
     <script src="{{ asset('login_css/js/jquery.min.js') }}"></script>
     <script src="{{ asset('login_css/js/popper.js') }}"></script>
-    <script src="{{ asset('login_css/js/bootstrap.min.js') }}"></script>]
+    <script src="{{ asset('login_css/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('login_css/js/main.js') }}"></script>
 </body>
 </html>

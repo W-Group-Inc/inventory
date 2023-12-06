@@ -15,6 +15,7 @@ use App\ReturnInventoryData;
 use App\ReturnItem;
 use App\Department;
 use App\Employee;
+use App\Company;
 use App\InventoryTransaction;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
@@ -28,6 +29,7 @@ class AssetController extends Controller
     public function assets()
     {
         $inventories = Inventory::with('category')->get();
+        $companies = Company::get();
         $categories = Category::where('status','=',"Active")->get();
         $asset_types = AssetType::where('status','=',null)->get();
         return view('inventories',
@@ -37,6 +39,7 @@ class AssetController extends Controller
             'inventories' => $inventories,
             'categories' => $categories,
             'asset_types' => $asset_types,
+            'companies' => $companies,
             )
         );
     }
@@ -63,22 +66,14 @@ class AssetController extends Controller
     {
         // dd($request->all());
         $def = "N/A";
-        if(($request->category == 2) || ($request->category == 4))
-        {
-
-        }
-        else
-        {
-
-            $this->validate($request, [
-                'category' => 'required',
-                'brand' => 'required',
-                'model' => 'required',
-                'description' => 'required',
-                // 'date_purchased' => 'required',
-            ]);
-        }
-        $oldest_data = Inventory::where('category_id',$request->category)->orderBy('id','desc')->first();
+        $this->validate($request, [
+            'category' => 'required',
+            'brand' => 'required',
+            'model' => 'required',
+            'description' => 'required',
+            // 'date_purchased' => 'required',
+        ]);
+        $oldest_data = Inventory::where('category_id',$request->category)->whereYear('date_purchase',date('Y',strtotime($request->date_purchased)))->orderBy('id','desc')->first();
         $inventory_code = 0;
         if($oldest_data == null)
         {
@@ -99,6 +94,7 @@ class AssetController extends Controller
 
         $invetory = new Inventory;
         $invetory->image = $file_name;
+        $invetory->company = $request->company;
         $invetory->category_id = $request->category;
         $invetory->po_number = $request->po_number;
         $invetory->equipment_code = $inventory_code;
@@ -253,13 +249,13 @@ class AssetController extends Controller
 
 
         $employees = Employee::with('dep')->get();
-            $assetCodes = AssetCode::get();
-            $assetCodesDepartment = AssetCode::where('department','!=',null)->get();
-            $employeeInventories = EmployeeInventories::with('inventoryData.category','EmployeeInventories.inventoryData.category')->where('status','Active')->where('generated',null)->where('department',null)->get();
-            $employeeInventoriesDepartment = EmployeeInventories::with('inventoryData.category','EmployeeInventoriesDepartment.inventoryData.category')->where('status','Active')->where('generated',null)->where('department','!=',null)->get();
-            $transactions = Transaction::orderBy('id','desc')->get();
-            // dd($transactions);
-            return view('transactions',
+        $assetCodes = AssetCode::get();
+        $assetCodesDepartment = AssetCode::where('department','!=',null)->get();
+        $employeeInventories = EmployeeInventories::with('inventoryData.category','EmployeeInventories.inventoryData.category')->where('status','Active')->where('generated',null)->where('department',null)->get();
+        $employeeInventoriesDepartment = EmployeeInventories::with('inventoryData.category','EmployeeInventoriesDepartment.inventoryData.category')->where('status','Active')->where('generated',null)->where('department','!=',null)->get();
+        $transactions = Transaction::orderBy('id','desc')->get();
+        // dd($transactions);
+        return view('transactions',
             array(
             'subheader' => '',
             'header' => "Transactions",

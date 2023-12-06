@@ -57,6 +57,15 @@
                 </div>
               </div>
               <div class="mb-2">
+                <label class="form-label">Company</label>
+                <select class="form-control select2 form-control-sm" name='company' style='width:100%' required>
+                  <option value=''>Select company</option>
+                  @foreach($companies as $company)
+                      <option value='{{$company->company_code}}'>{{$company->company_code}}</option>
+                  @endforeach
+                </select>
+              </div>
+              <div class="mb-2">
                 <label class="form-label">Brand</label>
                 <input type="text" name='brand' class="form-control form-control-sm mb-2 mr-sm-2" value="{{ old('brand') }}" placeholder="Brand" required>
               </div>

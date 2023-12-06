@@ -68,7 +68,7 @@
                     <th>Brand</th>
                     <th>Model</th>
                     <th>Serial Number</th>
-                    <th>Description</th>
+                    <th>Old Code</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -79,7 +79,7 @@
                       <td>{{$inventory->brand}}</td>
                       <td>{{$inventory->model}}</td>
                       <td>{{$inventory->serial_number}}</td>
-                      <td><small>{!! nl2br(e($inventory->description)) !!}</small></td>
+                      <td><small>{{$inventory->old_code}}</td>
                     </tr>
                   @endforeach
                 </tbody>

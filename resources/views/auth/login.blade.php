@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- <section>
+<section>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mb-3">
@@ -33,7 +33,7 @@
             <div class="form-group d-md-flex">
                 <div class="w-50"></div>
                 <div class="w-50 text-md-right">
-                    <a href="{{ route('password.request') }}" onclick='show()' style="color: #fff">Forgot Password</a>
+                    {{-- <a href="{{ route('password.request') }}" onclick='show()' style="color: #fff">Forgot Password</a> --}}
                 </div>
             </div>
           </form>
@@ -42,9 +42,9 @@
             </div>
         </div>
     </div>
-</section> -->
+</section>
 
-
+{{-- 
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
@@ -95,7 +95,7 @@
             </form>
         </div>
     </div>
-</div>
+</div> --}}
 
 <script>
     function show_password()
