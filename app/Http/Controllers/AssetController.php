@@ -108,6 +108,7 @@ class AssetController extends Controller
         $invetory->date_purchase = $request->date_purchased;
         $invetory->description = $request->description;
         $invetory->amount = $request->amount;
+        $invetory->old_code = $request->old_code;
         $invetory->status = "Active";
         $invetory->save();
 

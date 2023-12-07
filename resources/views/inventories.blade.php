@@ -66,6 +66,10 @@
                 </select>
               </div>
               <div class="mb-2">
+                <label class="form-label">Old Code</label>
+                <input type="text" name='old_code' class="form-control form-control-sm mb-2 mr-sm-2" value="{{ old('old_code') }}" placeholder="OLD Code" >
+              </div>
+              <div class="mb-2">
                 <label class="form-label">Brand</label>
                 <input type="text" name='brand' class="form-control form-control-sm mb-2 mr-sm-2" value="{{ old('brand') }}" placeholder="Brand" required>
               </div>
