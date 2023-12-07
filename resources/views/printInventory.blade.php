@@ -68,8 +68,10 @@
             </td>
             <td>: {{date('F d, Y')}}
             </td>
+            @if($inventory->image)
             <td rowspan='6' align='center'><h1><img style='border:1px solid black;' src='{{asset($inventory->image)}}' onerror="this.src='{{asset('login_css/images/logo.png')}}" width='150px' ></h1>
             </td>
+            @endif
         </tr>
         <tr >
             <td align='left' style='width:30%;'>
