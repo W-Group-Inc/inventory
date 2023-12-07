@@ -44,8 +44,13 @@
                                       <i class="far fa-eye">
                                       </i>
                                     </a>
+                                    <a href="#" title='Edit' class="btn btn-icon btn-warning" data-toggle="modal" data-target="#edit{{$employee->id}}">
+                                      <i class="far fa-edit">
+                                      </i>
+                                    </a>
+{{--                                     
                                     <a href="#" onclick='viewQRCode({{$employee->emp_code}},"{{$employee->name}}");' title='Generate QR Code Second' class="btn btn-icon btn-warning" data-toggle="modal" data-target="#generateQrCodeSecond"><i class="fas fa-qrcode"></i></a>
-                                    
+                                     --}}
                                   </td>
                               </tr>
                           @endforeach
@@ -60,7 +65,10 @@
 </div>
 
 @include('new_employee');
-@include('generateQrCodeSecond');
+@foreach($employees as $employee)
+  @include('edit_employee');
+@endforeach
+{{-- @include('generateQrCodeSecond'); --}}
 {{-- @foreach($employees as $employee)
   @include('generateQrCode');
 @endforeach --}}

@@ -56,4 +56,25 @@ class EmployeeController extends Controller
         $request->session()->flash('status','Successfully Created');
         return back();
     }
+    public function edit_employee (Request $request,$id)
+    {
+        // dd($request->all());
+        $request->validate([
+            'name' => 'required',
+            'department' => 'required',
+            'position' => 'required',
+            'emp_type' => 'required',
+        ]);
+
+        $employee = Employee::findOrfail($id);
+        $employee->name = $request->name;
+        $employee->department = $request->department;
+        $employee->position = $request->position;
+        $employee->emp_type = $request->emp_type;
+        $employee->status = "Active";
+        $employee->save();
+        
+        $request->session()->flash('status','Successfully Updated');
+        return back();
+    }
 }

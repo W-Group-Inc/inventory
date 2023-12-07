@@ -26,6 +26,7 @@ Route::post('activate-category','CategoryController@activateCategory');
 //Employees API
 Route::get('employees','EmployeeController@employees');
 Route::post('new-employee','EmployeeController@new_employee');
+Route::post('edit-employee/{id}','EmployeeController@edit_employee');
 
 
 //users
