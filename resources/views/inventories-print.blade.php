@@ -32,21 +32,23 @@
 </head>
 <body class='font-design'>
     <div id="header">
-        <h1><img src='{{asset('login_css/images/logo.png')}}' width='80px' ></h1>
+        <h1><img src='{{asset('login_css/images/wgroup.png')}}' width='100px' ></h1>
     </div>
- 
-    <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" style='padding-bottom:5px;'>
         <tr >
             <td>
                 {{-- <img src='{{asset('login_css/images/logo.png')}}' width='150px' > --}}
-                    <p align='center' class='font-design'><span style='font-size:14px;padding-bottom:3px;' ><strong> Republic of the Philippines</strong></span></p>
-                    <p align='center' class='font-design'><span style='font-size:22px;padding-bottom:5px;' ><strong> PROVINCE OF CATANDUANES</strong></span></p>
-                    <p align='center' class='font-design'><span style='font-size:14px;padding-bottom:5px;' ><strong> Municipality of Caramoran</strong></span></p>
-         
+                    <p align='center' class='font-design'><span style='font-size:14px;padding-bottom:3px;' ><strong> &nbsp;</strong></span></p>
+                    <p align='center' class='font-design'><span style='font-size:22px;padding-bottom:5px;' ><strong> W Group Inc</strong></span></p>
+                    <p align='center' class='font-design'><span style='font-size:14px;padding-bottom:5px;' ><strong> &nbsp;</strong></span></p>
+
                 </p>
             </td>
         </tr>
     </table>
+    <hr>
     <table width="100%" border="0" cellspacing="0" cellpadding="0" >
         <tr >
             <td>
