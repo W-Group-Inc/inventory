@@ -9,7 +9,7 @@
                     <div class="card-header">
                       <h4>Under Development</h4>
                     </div>
-                    {{-- <div class="card-body">
+                    <div class="card-body">
                       <div class="table-responsive">
                         <table class="table table-striped table-hover" id="employees-table" style="width:100%;">
                           <thead>
@@ -22,11 +22,14 @@
                           </tbody>
                         </table>
                       </div>
-                    </div> --}}
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 </div>
+@endsection
+@section('footer')
+  <script src="{{ asset('assets/js/app.min.js') }}"></script>
 @endsection
 

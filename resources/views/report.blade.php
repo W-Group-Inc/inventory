@@ -95,7 +95,7 @@
                       @else
                             <td></td>
                       @endif
-                          <td> <small>{{$inventory->remarks}}</small></td>
+                          <td> <small>{!! nl2br($inventory->remarks) !!}</small></td>
                           <td><a data-toggle="modal" data-target="#remarks{{$inventory->id}}" href="#" class="btn btn-icon btn-info" title='Remarks'>
                             <i class=" far fa-edit">
                             </i>

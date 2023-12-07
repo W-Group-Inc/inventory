@@ -257,6 +257,9 @@
               <li class="dropdown  @if($header == "Returns") active @endif">
                 <a href="{{ url('/returns') }}" class="nav-link" onclick='show();'><i data-feather="corner-down-left"></i><span>Return Items</span></a>
               </li> 
+              <li class="dropdown  @if($header == "For Repair") active @endif">
+                <a href="{{ url('/for-repair') }}" class="nav-link" onclick='show();'><i data-feather="settings"></i><span>For Repairs</span></a>
+              </li> 
               <li class="menu-header">Settings</li>
               <li class="dropdown @if($header == "Category") active @endif">
                 <a href="{{ url('/category') }}" class="nav-link" onclick='show();'><i data-feather="list"></i><span>Categories</span></a>
