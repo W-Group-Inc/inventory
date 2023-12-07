@@ -73,7 +73,8 @@ class AssetController extends Controller
             'description' => 'required',
             // 'date_purchased' => 'required',
         ]);
-        $oldest_data = Inventory::where('category_id',$request->category)->whereYear('date_purchase',date('Y',strtotime($request->date_purchased)))->orderBy('id','desc')->first();
+        // $oldest_data = Inventory::where('category_id',$request->category)->whereYear('date_purchase',date('Y',strtotime($request->date_purchased)))->orderBy('id','desc')->first();
+        $oldest_data = Inventory::where('category_id',$request->category)->orderBy('id','desc')->first();
         $inventory_code = 0;
         if($oldest_data == null)
         {
