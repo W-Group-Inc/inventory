@@ -61,6 +61,7 @@ Route::get('requests','RequestController@viewRequests');
 Route::get('accountabilityPDF/{id}','AssetController@viewAccountabilityPdf');
 Route::get('returnItem/{id}','AssetController@returnItemPdf');
 Route::post('upload-pdf','AssetController@uploadSignedContract');
+Route::post('input-remarks/{id}','AssetController@remarks');
 
 //for Repair
 Route::get('for-repair','AssetController@for_repair');
@@ -72,6 +73,7 @@ Route::post('upload-pdf-return','AssetController@upload_pdf_return');
 
 Route::get('physical-inventory','PhysicalInventoryController@index');
 Route::post('upload-inventory','PhysicalInventoryController@create');
+
 
 });
 

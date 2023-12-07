@@ -303,6 +303,16 @@ class AssetController extends Controller
         return back();
 
     }
+    public function remarks(Request $request,$id)
+    {
+        $inventory = Inventory::findOrfail($id);
+        $inventory->remarks = $request->remarks;
+        $inventory->save();
+
+        Alert::success('Successfully save.')->persistent('Dismiss');
+        return back();
+
+    }
     public function generateData (Request $request)
     {
         // dd($request->all());

@@ -30,13 +30,14 @@
         <div class="card">
           <div class="card-header">
             <h4>Inventories</h4>
-            <a href="{{url('print-report?department='.$depa)}}" target="_blank" title='Print' class="btn btn-danger btn-print"><i class="far fa-file-pdf"></i> Print</a>
+            {{-- <a href="{{url('print-report?department='.$depa)}}" target="_blank" title='Print' class="btn btn-danger btn-print"><i class="far fa-file-pdf"></i> Print</a> --}}
           </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-hover" id="tableExport">
                 <thead>
                   <tr>
+                    <th>Company</th>
                     <th>Code</th>
                     <th>Asset Type</th>
                     <th>P.O. Number</th>
@@ -49,14 +50,16 @@
                     <th>Date Purchase</th>
                     <th>Unit Price</th>
                     <th>Status</th>
-                    <th>Office</th>
+                    <th>Old Code</th>
                     <th>Accountable Person</th>
                     <th>Remarks</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   @foreach($inventories as $inventory)
                     <tr>
+                      <td>{{$inventory->company}}</td>
                       <td>{{$inventory->category->code}}-{{str_pad($inventory->equipment_code, 4, '0', STR_PAD_LEFT)}}</td>
                       <td>{{$inventory->category->asset_type->name}}</td>
                       <td>{{$inventory->po_number}}</td>
@@ -84,15 +87,19 @@
 
                       <td>{{number_format($inventory->amount,2)}}</td>
                       <td>{{$inventory->status}}</td>
+                      
+                      <td>{{$inventory->old_code}}</td>
                       @if($inventory->status == "Deployed")
 
-                          <td>{{$inventory->employee_inventory[0]->employee_info->dep->name}}</td>
                           <td>{{$inventory->employee_inventory[0]->employee_info->name}}</td>
                       @else
                             <td></td>
-                            <td></td>
                       @endif
-                          <td></td>
+                          <td> <small>{{$inventory->remarks}}</small></td>
+                          <td><a data-toggle="modal" data-target="#remarks{{$inventory->id}}" href="#" class="btn btn-icon btn-info" title='Remarks'>
+                            <i class=" far fa-edit">
+                            </i>
+                          </a></td>
                     </tr>
                   @endforeach
                 </tbody>
@@ -104,7 +111,9 @@
     </div>
   </section>
 </div>
-
+@foreach($inventories as $inventory)
+  @include('remarks');
+@endforeach
 <style type="text/css">
   .select-reports {
     width: 50%;
