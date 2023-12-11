@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mb-5">
-                <img alt="image"  src="{{asset('login_css/images/logo.png')}}" style='width:135px;'>
+                <img alt="image" src="{{asset('images/wgroup.png')}}" style='width:250px;'>
             </div>
         </div>
         <div class="row justify-content-center">
