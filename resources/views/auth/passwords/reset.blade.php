@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- <section class="ftco-section">
+<section class="ftco-section">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mb-5">
@@ -49,9 +49,9 @@
             </div>
         </div>
     </div>
-</section> -->
+</section>
 
-<div class="limiter">
+{{-- <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
             <div class="login100-pic js-tilt" data-tilt>
@@ -112,7 +112,7 @@
             </form>
         </div>
     </div>
-</div>
+</div> --}}
 
 <script>
     function show_password()
