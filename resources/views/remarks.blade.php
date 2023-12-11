@@ -11,6 +11,8 @@
                 <form method='post' action='input-remarks/{{$inventory->id}}' onsubmit='show();'  enctype="multipart/form-data">
                     {{ csrf_field() }}
                     
+                    <label >Description : </label>
+                    <textarea onkeyup="setHeight('description');" style="height: 100px;" onkeydown="setHeight('description');" id='description' name='description' class="form-control" placeholder="Description" required>{{$inventory->description}}</textarea>
                     <label >Remarks</label>
                     <textarea onkeyup="setHeight('description');" style="height: 100px;" onkeydown="setHeight('description');" id='remarks' name='remarks' class="form-control" placeholder="Remarks" required>{{$inventory->remarks}}</textarea>
                     <button type="submit" class="btn btn-primary m-t-15 waves-effect">Save</button>

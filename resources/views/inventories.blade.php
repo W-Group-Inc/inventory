@@ -49,7 +49,7 @@
                   <div class="row mt-3">
                     <div class='col-md-12 text-center'>
                       <label title="Upload image file" for="inputImage" class="btn btn-primary btn-save">
-                        <input type="file" accept="image/*" name="file" id="inputImage" style="display:none" onchange='uploadimage(this)' required>
+                        <input type="file" accept="image/*" name="file" id="inputImage" style="display:none" onchange='uploadimage(this)' >
                           Upload Image
                       </label>
                     </div>

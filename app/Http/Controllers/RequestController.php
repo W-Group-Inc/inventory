@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Category;
+use App\Company;
+use App\Department;
 use App\Borrowerinformation;
 use App\BorrowerAttachment;
 use Illuminate\Http\Request;
@@ -70,41 +72,9 @@ class RequestController extends Controller
     }
     public function BorrowInformation(Request $request)
     {
-        //employee API
-        $client = new Client([
-            'base_uri' => 'http://192.168.50.119:4200/HRAPI/public/',
-            'cookies' => true,
-            ]);
-
-        $data = $client->request('POST', 'oauth/token', [
-            'json' => [
-                'username' => 'rccabato@premiummegastructures.com',
-                'password' => 'P@ssw0rd',
-                'grant_type' => 'password',
-                'client_id' => '2',
-                'client_secret' => 'rVI1kVh07yb4TBw8JiY8J32rmDniEQNQayf3sEyO',
-                ]
-        ]);
-
-        $response = json_decode((string) $data->getBody());
-        $key = $response->access_token;
-
-        $dataDepartments = $client->request('get', 'departments', [
-                'headers' => [
-                    'Authorization' => 'Bearer ' . $key,
-                    'Accept' => 'application/json'
-                ],
-            ]);
-        $dataCompanies = $client->request('get', 'companies', [
-                'headers' => [
-                    'Authorization' => 'Bearer ' . $key,
-                    'Accept' => 'application/json'
-                ],
-            ]);
-        $responseDepartment = json_decode((string) $dataDepartments->getBody());
-        $departments = collect($responseDepartment->data);
-        $responseCompany = json_decode((string) $dataCompanies->getBody());
-        $companies = collect($responseCompany->data);
+        
+        $departments = Department::get();
+        $companies = Company::get();
         // dd($departments);
         $categories = Category::where('status','Active')->get();
         return view('borrowInformation',

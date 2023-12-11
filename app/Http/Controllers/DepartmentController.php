@@ -32,6 +32,9 @@ class DepartmentController extends Controller
     }
     public function newDepartment (Request $request)
     {
+        $request->validate([
+            'code' => 'required|unique:departments',
+        ]);
         $department = new Department;
         $department->code = $request->code;
         $department->name = $request->department_name;

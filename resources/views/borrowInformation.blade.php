@@ -42,7 +42,7 @@
                                     <select class='form-control select2' name='company'  id='company' required>
                                         <option></option>
                                         @foreach($companies as $company)
-                                        <option value='{{$company->descs}}'>{{$company->descs}}</option>
+                                        <option value='{{$company->company_code}}'>{{$company->company_code}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -51,7 +51,7 @@
                                     <select class='form-control select2' name='department' id='department'  required>
                                         <option></option>
                                         @foreach($departments as $department)
-                                        <option value='{{$department->descs}}'>{{$department->descs}}</option>
+                                        <option value='{{$department->code}}'>{{$department->code}}</option>
                                         @endforeach
                                     </select>
                                 </div>

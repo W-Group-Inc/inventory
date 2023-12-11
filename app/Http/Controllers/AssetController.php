@@ -308,6 +308,7 @@ class AssetController extends Controller
     public function remarks(Request $request,$id)
     {
         $inventory = Inventory::findOrfail($id);
+        $inventory->description = $request->description;
         $inventory->remarks = $request->remarks;
         $inventory->save();
 
