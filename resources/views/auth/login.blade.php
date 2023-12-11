@@ -33,7 +33,7 @@
             <div class="form-group d-md-flex">
                 <div class="w-50"></div>
                 <div class="w-50 text-md-right">
-                    {{-- <a href="{{ route('password.request') }}" onclick='show()' style="color: #fff">Forgot Password</a> --}}
+                    <a href="{{ route('password.request') }}" onclick='show()' style="color: #fff">Forgot Password</a>
                 </div>
             </div>
           </form>
