@@ -309,6 +309,8 @@ class AssetController extends Controller
     {
         $inventory = Inventory::findOrfail($id);
         $inventory->description = $request->description;
+        $inventory->serial_number = $request->serial_number;
+        $inventory->date_purchase = $request->date_purchase;
         $inventory->remarks = $request->remarks;
         $inventory->save();
 
