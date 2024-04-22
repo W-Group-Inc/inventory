@@ -85,16 +85,16 @@ class AssetController extends Controller
             $inventory_code =  $oldest_data->equipment_code + 1 ;
         }
 
-        $attachment = $request->file('file');
-        $original_name = $attachment->getClientOriginalName();
-        $name = time().'_'.$attachment->getClientOriginalName();
-        $attachment->move(public_path().'/images/', $name);
-        $file_name = '/images/'.$name;
+        // $attachment = $request->file('file');
+        // $original_name = $attachment->getClientOriginalName();
+        // $name = time().'_'.$attachment->getClientOriginalName();
+        // $attachment->move(public_path().'/images/', $name);
+        // $file_name = '/images/'.$name;
 
 
 
         $invetory = new Inventory;
-        $invetory->image = $file_name;
+        // $invetory->image = $file_name;
         $invetory->company = $request->company;
         $invetory->category_id = $request->category;
         $invetory->po_number = $request->po_number;

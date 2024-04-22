@@ -20,7 +20,7 @@
             </div>
             <div class="card-body">
               <div class='row'>
-                <div class='col-md-6'>
+                <div class='col-md-12'>
                   <div class="mb-2">
                     <label class="form-label">Asset Type</label>
                     <select class=" select2 form-control form-control-sm" name='asset_type' style='width:100%;' onchange='select_type(this.value)' required>
@@ -44,7 +44,7 @@
                     </select>
                   </div>
                 </div>
-                <div class='col-md-6 text-center'>
+                {{-- <div class='col-md-6 text-center'>
                   <img class="rounded" id='avatar' style='width:100px;height:100px;' src='{{URL::asset('/images/no_image.png')}}' onerror="this.src='{{URL::asset('/images/no_image.png')}}';">
                   <div class="row mt-3">
                     <div class='col-md-12 text-center'>
@@ -54,7 +54,7 @@
                       </label>
                     </div>
                   </div>
-                </div>
+                </div> --}}
               </div>
               <div class="mb-2">
                 <label class="form-label">Company</label>
